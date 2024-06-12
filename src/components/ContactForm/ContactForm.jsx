@@ -1,6 +1,7 @@
 import css from "./ContactForm.module.css";
 import { useId } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
+import InputMask from "react-input-mask";
 import * as Yup from "yup";
 import { nanoid } from "nanoid";
 
@@ -17,7 +18,12 @@ const ContactForm = ({ onAdd }) => {
     username: Yup.string()
       .required("Required!")
       .min(3, "Too short!")
-      .max(50, "Name must be at most 50 characters!"),
+      .max(50, "Name must be at most 50 characters!")
+      .test(
+        "trim",
+        "Name cannot be only spaces!",
+        (value) => value.trim() !== ""
+      ),
     number: Yup.string()
       .required("Required!")
       .min(3, "Too short!")
@@ -65,6 +71,9 @@ const ContactForm = ({ onAdd }) => {
             name="number"
             id={numberFieldId}
             className={css["contact-form-input"]}
+            as={InputMask}
+            mask="+38(999)999-99-99"
+            maskChar={null}
           />
           <ErrorMessage
             className={css["contact-form-warning"]}
