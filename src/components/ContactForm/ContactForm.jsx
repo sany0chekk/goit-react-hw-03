@@ -1,7 +1,6 @@
 import css from "./ContactForm.module.css";
 import { useId } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import InputMask from "react-input-mask";
 import * as Yup from "yup";
 import { nanoid } from "nanoid";
 
@@ -27,7 +26,8 @@ const ContactForm = ({ onAdd }) => {
     number: Yup.string()
       .required("Required!")
       .min(3, "Too short!")
-      .max(50, "Number must be at most 50 characters!"),
+      .max(50, "Number must be at most 50 characters!")
+      .matches(/^[0-9-]+$/, "Number must contain only digits and -"),
   });
 
   const handleSubmit = (values, actions) => {
@@ -47,41 +47,38 @@ const ContactForm = ({ onAdd }) => {
       onSubmit={handleSubmit}
       validationSchema={validationSchema}
     >
-      <Form className={css["contact-form"]}>
-        <div className={css["contact-form-element"]}>
-          <label htmlFor={nameFieldId} className={css["contact-form-label"]}>
+      <Form className={css.form}>
+        <div className={css.formElement}>
+          <label htmlFor={nameFieldId} className={css.label}>
             Name
           </label>
           <Field
             type="text"
             name="username"
             id={nameFieldId}
-            className={css["contact-form-input"]}
+            className={css.input}
           />
           <ErrorMessage
             name="username"
             component="span"
-            className={css["contact-form-warning"]}
+            className={css.warning}
           />
         </div>
-        <div className={css["contact-form-element"]}>
+        <div className={css.formElement}>
           <label htmlFor={numberFieldId}>Number</label>
           <Field
             type="text"
             name="number"
             id={numberFieldId}
-            className={css["contact-form-input"]}
-            as={InputMask}
-            mask="+38(999)999-99-99"
-            maskChar={null}
+            className={css.input}
           />
           <ErrorMessage
-            className={css["contact-form-warning"]}
+            className={css.warning}
             name="number"
             component="span"
           />
         </div>
-        <button type="submit" className={css["contact-form-button"]}>
+        <button type="submit" className={css.btn}>
           Add contact
         </button>
       </Form>

@@ -1,10 +1,10 @@
-.contact-list {
+.list {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 30px;
 }
 
-.contact-item {
+.item {
   width: calc((100% - 60px) / 3);
 }

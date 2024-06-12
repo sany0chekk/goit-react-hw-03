@@ -3,19 +3,16 @@ import { FaPhoneAlt, FaUser } from "react-icons/fa";
 
 const Contact = ({ id, name, number, onDelete }) => {
   return (
-    <div className={css["contact-item"]}>
-      <div className={css["contact-content"]}>
-        <p className={`${css["contact-item-text"]} ${css["contact-name"]}`}>
+    <div className={css.item}>
+      <div className={css.content}>
+        <p className={`${css.text} ${css.name}`}>
           <FaUser /> {name}
         </p>
-        <p className={`${css["contact-item-text"]} ${css["contact-number"]}`}>
+        <p className={`${css.text} ${css.number}`}>
           <FaPhoneAlt /> {number}
         </p>
       </div>
-      <button
-        className={css["contact-remove-btn"]}
-        onClick={() => onDelete(id)}
-      >
+      <button className={css.btn} onClick={() => onDelete(id)}>
         Delete
       </button>
     </div>

@@ -1,4 +1,4 @@
-.contact-item {
+.item {
   width: 100%;
   background-color: #cdcdcd;
   border-radius: 8px;
@@ -10,7 +10,7 @@
   gap: 20px;
 }
 
-.contact-item-text {
+.text {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -18,12 +18,12 @@
   font-size: 18px;
 }
 
-.contact-name {
+.name {
   text-transform: capitalize;
   margin-bottom: 15px;
 }
 
-.contact-remove-btn {
+.btn {
   border: none;
   background-color: black;
   color: white;

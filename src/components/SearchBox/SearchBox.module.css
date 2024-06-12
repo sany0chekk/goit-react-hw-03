@@ -1,4 +1,4 @@
-.contact-search {
+.search {
   max-width: 400px;
   margin: 0 auto;
   background-color: #d8d8d8;
@@ -7,14 +7,14 @@
   margin-bottom: 100px;
 }
 
-.contact-search-title {
+.title {
   font-weight: 700;
   font-size: 20px;
   text-align: center;
   margin-bottom: 10px;
 }
 
-.contact-search-input {
+.input {
   border: none;
   border-radius: 4px;
   padding: 5px 10px;
