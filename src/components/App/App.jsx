@@ -33,7 +33,7 @@ const App = () => {
   }, [contacts]);
 
   return (
-    <div>
+    <div className={css.container}>
       <h1 className={css.title}>Phonebook</h1>
       <ContactForm onAdd={addContact} />
       <SearchBox value={inputValue} onFilter={setInputValue} />
